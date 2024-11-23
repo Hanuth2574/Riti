@@ -8,6 +8,7 @@ import Testimonials from "./components/Testimonials"
 import Steps from './components/Steps'
 import Component from './components/Profiles'
 import Visions from './components/Visions'
+import Layers from './components/Layers'
 
 export default function Page() {
   const [Load, setLoad] = useState(true);
@@ -26,8 +27,10 @@ export default function Page() {
           <Steps/>
           <Visions/>
           <Component/>
+          <Layers/>
         </>
       )}
+      
     </>
   )
 }
