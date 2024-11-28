@@ -3,17 +3,29 @@
 import React, { useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-import img1 from "./images/img1.jpg";
 import img2 from "./images/img2.jpg";
 import img3 from "./images/img3.jpg";
 import img4 from "./images/img4.jpg";
-
+import { AnimatedTestimonials } from "./ImageStack";
 // Image Array
 const images = [
   { src: img3, alt: "Image 3" },
   { src: img2, alt: "Image 2" },
   { src: img4, alt: "Image 1" },
 ];
+const images1 = [
+  { src: "C:\Users\renik\OneDrive\Desktop\Timepass\timepass\src\app\components\images\img3.jpg"},
+  { src: "C:\Users\renik\OneDrive\Desktop\Timepass\timepass\src\app\components\images\img3.jpg" },
+  { src: "C:\Users\renik\OneDrive\Desktop\Timepass\timepass\src\app\components\images\img3.jpg"},
+];
+
+function SmallScreenStack1(){
+  return (
+    <>
+    <AnimatedTestimonials />
+    </>
+  )
+}
 
 // Component for Small Screens
 function SmallScreenStack() {
@@ -76,16 +88,15 @@ function SmallScreenStack() {
             transformStyle: "preserve-3d",
             boxShadow:
               "0 4px 6px 5px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-            width: `calc(100% - ${index * 20}px)`,
             zIndex: images.length - index,
           }}
         >
           <Image
             src={image.src}
             alt={image.alt}
-            width={500}
-            height={300}
-            className="object-cover w-full h-auto"
+            width={200}
+            height={200}
+            className="object-cover w-[250px] "
             priority
           />
         </motion.div>
@@ -135,7 +146,7 @@ function LargeScreenStack() {
   return (
     <motion.div
       ref={ref}
-      className="relative w-full h-auto"
+      className="relative w-[500px] h-auto"
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
@@ -187,7 +198,7 @@ export default function AnimatedImageStack() {
 
   return (
     <section>
-      <div className="mb-36" >
+      <div className="mb-3" >
         <div className="flex items-center gap-2 w-full justify-center mt-20 mb-8">
         <div className="h-2 w-2 rounded-full bg-pink-500"></div>
         <span className="text-gray-600 text-lg">Our People</span>
@@ -202,20 +213,15 @@ export default function AnimatedImageStack() {
         </p>
       </div>
       </div>
-      <div className="relative min-h-screen overflow-hidden flex flex-col ml-0 md:p-9">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "linear-gradient(to right, white, transparent 10%, transparent 90%, white)",
-          zIndex: 10,
-        }}
-      ></div>
-      <div className="w-full max-w-3xl rounded-lg z-20">
-        <div className="flex justify-center md:p-8">
+      <div className="relative min-h-screen overflow-hidden flex flex-col ml-0 md:p-9  ">
+      
+      <div className="w-full max-w-3xl mt-28 rounded-lg z-20">
+        <div className="flex items-center md:ml-0 ml-16 justify-center">
           {isLargeScreen ? <LargeScreenStack /> : <SmallScreenStack />}
         </div>
       </div>
     </div>
+  
     </section>
   );
 }

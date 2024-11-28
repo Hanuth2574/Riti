@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { DotLottiePlayer } from '@dotlottie/react-player';
 import test from "./test.json";
 import interview from "./interview.json";
 import target from "./target.json";
 
 function Steps() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
   const animations = [
     { src: test, content: "Showcase your passion for sustainability and fashion by filling out the application form.", title: "1 Google Form", label: "Test" },
-    { src: target, content: "Show off nd for models its based on confidence and etiquette and body language.", title: "2 Challenge", label: "Target" },
+    { src: target, content: "Show off and for models it's based on confidence and etiquette and body language.", title: "2 Challenge", label: "Target" },
     { src: interview, content: "Meet with our team to discuss your vision, interests, and contributions to RITI.", title: "3 Interview", label: "Interview" }
   ];
 
@@ -26,15 +24,13 @@ function Steps() {
             <div
               key={index}
               className="h-auto md:w-1/3 w-full flex flex-col items-center p-5"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
             >
               <DotLottiePlayer
                 src={animation.src}
                 className="md:h-20 h-14 w-14 md:w-20"
-                autoplay={hoveredIndex === index}
+                autoplay={true}
                 loop={true}
-                hover={true}
+                speed={0.7}
               />
               <div className="text-center mt-5 md:text-3xl text-xl">
                 <span>{animation.title}</span>
@@ -51,3 +47,4 @@ function Steps() {
 }
 
 export default Steps;
+

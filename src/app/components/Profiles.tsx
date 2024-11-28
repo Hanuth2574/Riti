@@ -60,8 +60,8 @@ export default function Component() {
         }
       `}</style>
 
-      <div className="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-white to-transparent z-10" />
+      <div className="absolute hidden md:block left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-white to-transparent z-10" />
+      <div className="absolute hidden md:block right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-white to-transparent z-10" />
       
       <div className="flex items-center gap-2 w-full justify-center mt-20 mb-8">
         <div className="h-2 w-2 rounded-full bg-pink-500"></div>
